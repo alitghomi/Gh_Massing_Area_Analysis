@@ -1,33 +1,51 @@
-# Gh_Basic_Fluid_Sim
+# Gh_Massing_Area_Analysis
 
-![](https://github.com/alitghomi/GH_Basic_Fluid_Sim/blob/main/Assets/flowSample.gif)
+![](https://github.com/alitghomi/Gh_Massing_Area_Analysis/blob/main/Assets/area_analysis.jpg)
+![](https://github.com/alitghomi/Gh_Massing_Area_Analysis/blob/main/Assets/area_analysis_outputs.png)
 
-This Grasshopper file does a basic fluid simulation on a given geometry based on gravitational direction (Default: 0,0,-1)
+This Grasshopper file contours a given massing geometry or a collection of geometries based on a list of floor-to-floor heights and outputs areas, floor heights, etc., as well as floor plan boundaries and massing blocks.
 
 ## How to use
 
 ### Inputs
-#### Brep
-A Brep to generate the probe points on
+#### Massing
+Series of Breps as massing
 
-#### Count
-Probe count.
+#### Floor to Floor heights
+Floor to Floor heights of the given massing.
 
-#### Factor
-The amount of movement in every frame. 
-
-#### Reset Button
-Resets the simulation. 
-
-#### Run
-Starts and stops the simulation. 
+#### Min Ceiling Height
+The minimum acceptable ceiling height. 
 
 ### Outputs
 
-#### CrvOut
-Curves representing the flows.
+#### Floor Count
+List of floor indexes.
+
+####Floor Elevations
+List of elevations of each floor
+
+#### Floor To Floor Heights
+List of the floor-to-floor heights resulting from slicing the massing
+
+#### Areas Per Floor
+List of total area of each floor
+
+#### Max Building Height
+The maximum building height after slicing.
+
+#### Total Area
+The total area of all floors
+
+#### Floor Boundaries
+The floor boundary curves 
+
+#### Massing Divided
+The floor boundary extrusions
+
 
 ### Notes
-- You can change the direction of gravity by changing FV vector of the load component
+- It works with multiple massings however it combines all the metrics. If you need the metrics separately you would need to adjust the code or you can copy and paste the entire thing for each massing.
+- If the massing geometry and the given floor-to-floor heights don't match, or there are slopes in the massing, the output floor-to-floor heights would vary depending on the minimum ceiling height and the discrepancies between input massing and floor-to-floor heights.
 
 
